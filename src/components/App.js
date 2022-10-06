@@ -1,10 +1,14 @@
-
+import Filme from './Filme.jsx'
+import { Reset } from './generic/Reset.js';
 
 function App() {
   return (
-    <div>
-      oi
-    </div>
+    <>
+      <Reset />
+
+      
+      <Filme />
+    </>
   );
 }
 
