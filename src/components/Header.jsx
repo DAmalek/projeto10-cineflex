@@ -1,10 +1,6 @@
 import styled from "styled-components"
 import Filme from "./Filme";
 
-
-
-
-
 export default function Header(props) {
   
 
@@ -41,7 +37,7 @@ const HeaderTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
+  
   height: 90px;
   width: 100%;
   font-size: 25px;

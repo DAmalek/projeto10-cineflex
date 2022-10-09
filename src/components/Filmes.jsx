@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 function Filmes() {
   const [movies, setMovies] = useState([]);
+  const {idSessao} = useParams();
 
-  const promise = axios.get(
-    "https://mock-api.driven.com.br/api/v5/cineflex/movies"
-  );
+  console.log(idSessao, "coe");
 
   useEffect(() => {
     const promise = axios.get(
@@ -25,13 +25,19 @@ function Filmes() {
     if (movies === null) return "carregando...";
   }, []);
 
+  function ChooseMovie(){
+    
+  }
+
   return (
     <>
       <MovieWallpaper>
-        {movies.map((value) => (
-          <div>
-            <img src={value.posterURL} alt={value.posterURL} />
-          </div>
+        {movies.map((value,idx) => (
+          <Link to={`/sessoes/${value.id}`}>
+            <div key={idx}>
+              <img src={value.posterURL} alt={value.posterURL} />
+            </div>
+          </Link>
         ))}
       </MovieWallpaper>
     </>
@@ -42,8 +48,7 @@ export default Filmes;
 
 const MovieWallpaper = styled.div`
   height: 100vh;
-  background-color: #e5e5e5;
-
+  padding-left: 18px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -55,10 +60,12 @@ const MovieWallpaper = styled.div`
     background-color: #ffff;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     display: flex;
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
   }
   img {
-    width: 90%;
+    width: 93%;
+    height: 95%;
   }
 `;
