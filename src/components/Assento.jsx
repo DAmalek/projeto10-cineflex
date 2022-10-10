@@ -12,6 +12,9 @@ export default function () {
   const [session, setSession] = useState([]);
   const [movieTime, setMovieTime] = useState({});
   const [time, setTime] = useState();
+  
+  const [cliente , setCliente] = useState({id:[], nome:"", cpf:""})
+  
 
   useEffect(() => {
     const URL = `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`;
@@ -30,6 +33,9 @@ export default function () {
     });
   });
 
+  function reservarAssento(){
+
+  }
   return (
     <>
       <Header text={"Selecione os assentos"} />
@@ -39,14 +45,14 @@ export default function () {
           <MovieSeats key={value.name}>{value.name}</MovieSeats>
         ))}
       </SeatsContainer>
+
+
       <FormContainer>
-        
           <label for="campo nome">Nome do comprador:</label>
-          <input type="text" placeholder="Digite seu nome" id="campo nome" />
+          <input type="text" placeholder="Digite seu nome" id="campo nome" value={cliente} onChange={e => setCliente(e.target.value)} />
           <label for="campo cpf">CPF do comprador:</label>
-          <input type="text" placeholder="Digite seu cpf" id="campo cpf" />
+          <input type="text" placeholder="Digite seu cpf" id="campo cpf" value={cliente} onChange={e => setCliente(e.target.value)} />
           <button>Reservar assentos</button>
-        
       </FormContainer>
 
       <Footer

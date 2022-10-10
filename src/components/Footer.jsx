@@ -49,7 +49,7 @@ const StyledFooter = styled.div`
     
 `
 const TextBox = styled.div`
-      padding-top: 17px ;
+      padding-top: 9px ;
     h2 {
         padding-top: 7px;
         font-size: 25px;
