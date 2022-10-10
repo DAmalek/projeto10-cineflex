@@ -28,10 +28,6 @@ function Filmes() {
   
   if (movies === []) return "carregando...";
 
-  function ChooseMovie(){
-    
-  }
-
   return (
     <>
       <MovieWallpaper>
