@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
+
 function Filmes() {
   const [movies, setMovies] = useState([]);
-  const {idSessao} = useParams();
 
-  console.log(idSessao, "coe");
+  
+
+  
 
   useEffect(() => {
     const promise = axios.get(
@@ -22,8 +24,9 @@ function Filmes() {
       console.log(error.response.data);
     });
 
-    if (movies === null) return "carregando...";
   }, []);
+  
+  if (movies === []) return "carregando...";
 
   function ChooseMovie(){
     
@@ -33,7 +36,7 @@ function Filmes() {
     <>
       <MovieWallpaper>
         {movies.map((value,idx) => (
-          <Link to={`/sessoes/${value.id}`}>
+          <Link to={`/sessao/${value.id}`}>
             <div key={idx}>
               <img src={value.posterURL} alt={value.posterURL} />
             </div>
